@@ -11,7 +11,7 @@ LWin & e::Run emacs.exe
 LWin & g::Run www.google.com
 LWin & f::Run Everything.exe
 LWin & h::Run www.github.com
-LWin & c::Run powershell
+LWin & c::Run cmd.exe
 LWin & b::Run www.baidu.com
 LWin & t::Run YoudaoDict.exe
 LWin::return
