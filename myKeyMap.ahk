@@ -19,6 +19,9 @@ LWin::return
 
 
 SetCapsLockState, AlwaysOff
+SetCapsLockState, AlwaysOn
+SetCapsLockState, AlwaysOff
+
 
 #ifWinActive,ahk_class Emacs
 {
