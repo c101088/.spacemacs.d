@@ -19,7 +19,7 @@ WinActivate,Wox
 return	
 
 LWin & h::Run www.github.com
-LWin & c::Run cmd.exe
+LWin & c::Run powershell.exe
 LWin & b::Run www.baidu.com
 LWin & t::
 	Run YoudaoDict.exe	
