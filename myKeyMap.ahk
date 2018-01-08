@@ -11,14 +11,19 @@ LWin & e::Run emacs.exe
 LWin & g::Run www.google.com
 LWin & f::
 Run Wox.exe
-if WinExist("ahk_exe Wox.exe")
-	WinActivate
+WinWait,Wox
+WinActivate,Wox
+	
+;if WinExist("ahk_exe Wox.exe")
+
 return	
 
 LWin & h::Run www.github.com
 LWin & c::Run cmd.exe
 LWin & b::Run www.baidu.com
-LWin & t::Run YoudaoDict.exe
+LWin & t::
+	Run YoudaoDict.exe	
+Return 
 LWin::return
 
 
