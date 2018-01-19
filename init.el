@@ -309,6 +309,7 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
+	(setq make-backup-files nil)
   (setq configuration-layer--elpa-archives
       '(("melpa-cn" . "http://elpa.emacs-china.org/melpa/")
         ("org-cn"   . "http://elpa.emacs-china.org/org/")
@@ -318,7 +319,12 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (setq tramp-ssh-controlmaster-options
         "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
 
-
+  (defun my-org-mode ()
+    (setq truncate-lines nil)
+    )
+ (add-hook 'org-mode-hook 'my-org-mode )
+		
+		
 (setq-default dotspacemacs-themes '(monokai)
               dotspacemacs-fullscreen-use-non-native t   ;;设置最大化不占用系统导航栏
               dotspacemacs-maximized-at-startup t   ;;设置窗口启动最大化
