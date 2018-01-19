@@ -66,6 +66,7 @@ values."
    ;; A list of packages that will not be installed and loaded.
    dotspacemacs-excluded-packages '(
                                     ivy
+                                    evil-unimpaired
                                     )
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
@@ -368,4 +369,14 @@ you should place your code here."
               (global-set-key (kbd "H-x") 'evil-delete) ;cut
               (global-set-key (kbd "H-v") 'evil-paste-after) ;paste
               (global-set-key (kbd "H-s") 'save-buffer)      ;save
-              (global-set-key (kbd "H-a") 'mark-whole-buffer) 
+(global-set-key (kbd "H-a") 'mark-whole-buffer)
+(global-set-key (kbd "H-f") 'evil-forward-word-end)
+(global-set-key (kbd "H-b") 'evil-backward-word-begin)
+(global-set-key (kbd "H-l") 'forward-char)
+(global-set-key (kbd "H-h") 'backward-char)
+(global-set-key (kbd "H-j") 'evil-next-line)
+(global-set-key (kbd "H-k") 'evil-previous-line)
+(global-set-key (kbd "H-i") 'move-beginning-of-line)
+(global-set-key (kbd "H-o") 'move-end-of-line)
+(global-set-key (kbd "H-p") 'scroll-up-command)
+(global-set-key (kbd "H-u") 'scroll-down-command)
