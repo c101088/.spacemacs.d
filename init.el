@@ -31,6 +31,7 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     go
      autohotkey
      javascript
      ;; ----------------------------------------------------------------
@@ -40,7 +41,6 @@ values."
      ;; ----------------------------------------------------------------
      ;;ivy
      helm
-     go
      youdao-dictionary
      ispell
      auto-completion
@@ -367,7 +367,7 @@ you should place your code here."
               (setq w32-apps-modifier 'hyper)         ; Menu/App key
               (global-set-key (kbd "H-c") 'evil-yank) ;copy
               (global-set-key (kbd "H-x") 'evil-delete) ;cut
-              (global-set-key (kbd "H-v") 'evil-paste-after) ;paste
+              (global-set-key (kbd "H-v") 'evil-paste-before) ;paste
               (global-set-key (kbd "H-s") 'save-buffer)      ;save
 (global-set-key (kbd "H-a") 'mark-whole-buffer)
 (global-set-key (kbd "H-f") 'evil-forward-word-end)
