@@ -9,8 +9,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 LWin & e::Run runemacs.exe
 LWin & g::Run www.google.com
-LWin & f::
-Run Wox.exe
+LWin & f::Run Wox.exe
 WinWait,Wox
 WinActivate,Wox
 	
@@ -19,7 +18,7 @@ WinActivate,Wox
 return	
 
 LWin & h::Run www.github.com
-LWin & c::Run powershell.exe
+LWin & c::Run git-bash.exe
 LWin & b::Run www.baidu.com
 LWin & t::
 	Run YoudaoDict.exe	
