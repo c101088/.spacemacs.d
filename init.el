@@ -329,9 +329,10 @@ before packages are loaded. If you are unsure, you should try in setting them in
               dotspacemacs-fullscreen-use-non-native t   ;;设置最大化不占用系统导航栏
               dotspacemacs-maximized-at-startup t   ;;设置窗口启动最大化
               dotspacemacs-line-numbers t   ;;开启行号
-
-
               )
+(add-to-list 'exec-path "C:/Program Files (x86)/Aspell/bin/")
+(setq ispell-program-name "aspell")
+(setq ispell-dictionary "C:/Program Files (x86)/Aspell/dict/br.rws")
   )
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
