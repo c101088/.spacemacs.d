@@ -34,6 +34,7 @@ values."
      go
      autohotkey
      javascript
+     spell-checking
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
@@ -43,7 +44,7 @@ values."
      helm
      ispell
      auto-completion
-;     better-defaults
+     better-defaults
      emacs-lisp
      ;;git
      markdown
@@ -331,10 +332,19 @@ before packages are loaded. If you are unsure, you should try in setting them in
               dotspacemacs-maximized-at-startup t   ;;设置窗口启动最大化
               dotspacemacs-line-numbers t   ;;开启行号
               )
+
 (add-to-list 'exec-path "C:/Program Files (x86)/Aspell/bin/")
 (setq ispell-program-name "aspell")
-(setq ispell-dictionary "C:/Program Files (x86)/Aspell/dict/br.rws")
-  )
+(setq ispell-dictionary "british")
+(setq-default dotspacemacs-configuration-layers
+              '((spell-checking :variables enable-flyspell-auto-completion t)))
+
+
+
+
+)
+
+
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
 This function is called at the very end of Spacemacs initialization after
