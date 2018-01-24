@@ -41,19 +41,18 @@ values."
      ;; ----------------------------------------------------------------
      ;;ivy
      helm
-     youdao-dictionary
      ispell
      auto-completion
-     better-defaults
+;     better-defaults
      emacs-lisp
      ;;git
      markdown
      org
-     (shell :variables
-     shell-default-height 30
-     shell-default-position 'bottom)
-     spell-checking
-     syntax-checking
+;     (shell :variables
+;     shell-default-height 30
+;     shell-default-position 'bottom)
+;     spell-checking
+;     syntax-checking
      ;;version-control
      )
    ;; List of additional packages that will be installed without being
@@ -324,7 +323,9 @@ before packages are loaded. If you are unsure, you should try in setting them in
     )
  (add-hook 'org-mode-hook 'my-org-mode )
 		
-		
+
+ (setq company-go-gocode-command "c:/Go/bin/gocode.exe")
+
 (setq-default dotspacemacs-themes '(monokai)
               dotspacemacs-fullscreen-use-non-native t   ;;设置最大化不占用系统导航栏
               dotspacemacs-maximized-at-startup t   ;;设置窗口启动最大化
