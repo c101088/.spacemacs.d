@@ -31,11 +31,7 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
-<<<<<<< HEAD
      chinese
-=======
-     html
->>>>>>> 38b00e0b9fba48b569cce8c0d1b9fab88457e704
      go
      autohotkey
      javascript
