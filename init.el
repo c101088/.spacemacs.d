@@ -31,7 +31,7 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
-     html
+     chinese
      go
      autohotkey
      javascript
@@ -67,7 +67,8 @@ values."
    ;; A list of packages that will not be installed and loaded.
    dotspacemacs-excluded-packages '(
                                     ivy
-                                    evil-unimpaired
+                                    evil-unimpaire
+                                    chinese-pyim
                                     )
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
@@ -323,8 +324,10 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (defun my-org-mode ()
     (setq truncate-lines nil)
     )
- (add-hook 'org-mode-hook 'my-org-mode )
-		
+  
+;;  (add-hook 'org-mode-hook 'smartparens-mode-hook)
+  (add-hook 'org-mode-hook 'my-org-mode )
+ 
 
  (setq company-go-gocode-command "c:/Go/bin/gocode.exe")
 
