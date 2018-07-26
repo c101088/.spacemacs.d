@@ -39,6 +39,7 @@ values."
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      ;;ivy
+     tiscript
      helm
      go
      youdao-dictionary
@@ -366,7 +367,12 @@ you should place your code here."
 (defun now()
     (interactive "*")
     (insert (format-time-string "%Y/%m/%d %H:%M:%S" (current-time)))
-)
+    )
+
+(defun src()
+  (interactive "*")
+  (insert "    #+begin_src go \n    #+end_src")
+  )
 
 
               (setq w32-pass-apps-to-system nil)

@@ -6,7 +6,8 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 
 
-
+LShift & Space::
+return
 LWin & e::Run runemacs.exe
 LWin & g::Run www.google.com
 LWin & f::
