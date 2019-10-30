@@ -1,4 +1,4 @@
-﻿#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
+#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
 ; #Warn  ; Enable warnings to assist with detecting common errors.
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
@@ -7,37 +7,109 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 
 
-LWin & e::Run runemacs.exe
-LWin & g::Run www.google.com
-LWin & f::Run Wox.exe
-WinWait,Wox
-WinActivate,Wox
-	
-;if WinExist("ahk_exe Wox.exe")
 
-return	
 
-LWin & h::Run www.github.com
-LWin & c::Run git-bash.exe
-LWin & b::Run www.baidu.com
-LWin & t::
-	Run YoudaoDict.exe	
-Return 
+
+
+
+
+SetTitleMatchMode RegEx
+return
+ 
+ 
+ 
+#IfWinActive ahk_class ExploreWClass|CabinetWClass
+ 
+    ; open 'cmd' in the current directory
+    ;
+    LWin & c::
+		OpenCmdInCurrent()
+	return
+#IfWinActive
+ 
+
+ 
+ 
+ 
+; Opens the command shell 'cmd' in the directory browsed in Explorer.
+; Note: expecting to be run when the active window is Explorer.
+;
+OpenCmdInCurrent()
+{
+    ; This is required to get the full path of the file from the address bar
+    WinGetText, full_path, A
+
+    ; Split on newline (`n)
+    ; word_array1 := StrSplit(full_path,"`n")
+    ; Take the first element from the array
+    ; MsgBox,%full_path%
+	loop,Parse,full_path,`n
+    {
+        tempText :=A_LoopField
+   
+        ; MsgBox,%tempText%
+       
+        if RegExMatch(tempText,": ") !=0
+        {
+            ; MsgBox,%A_LoopField%
+            tempArr := StrSplit(A_LoopField," ")
+            res_path :=tempArr[2]
+        }
+        
+    }
+
+
+
+    ; full_path := RegExReplace(full_path, "^地址: ", "")
+	; MsgBox,%full_path%
+    ; ; Just in case - remove all carriage returns (`r)
+    ; StringReplace, full_path, full_path, `r, , all
+ 
+
+    res_path :=StrReplace(res_path, "\","/",All)
+    temp := StrLen(res_path)
+    ; MsgBox,%temp%
+    res_path :=StrReplace(res_path,"`r","/",All)
+    ; res_path =%res_path%/
+    if InStr(res_path, ":")!=0
+    {
+	    ; MsgBox,%res_path%
+        ; Run,  cmder.exe "-new_console:d:%res_path%" 
+        ; Run,  cmder.exe /START "E:/Ubuntu64"
+        Run,  cmder.exe /START "%res_path%"
+    }
+    else
+    {
+        Run, cmder.exe /START "C:/ " 
+    }
+
+}
+
+
+
+LWin & h::
+	Run www.google.com 
+return
+
+LWin & b::
+	Run www.baidu.com	
+return
+
 LWin::return
 
 
 
 SetCapsLockState, AlwaysOff
 
-#ifWinActive,ahk_class Emacs
-{
-	Capslock::Appskey
-	return
+; #ifWinActive,ahk_class Emacs
+; {
+; 	Capslock::Appskey
+; 	return
 	
-}
-#ifWinActive
+; }
+; #ifWinActive
 
-#if !WinActive("ahk_class Emacs")
+; #if !WinActive("ahk_class Emacs")
 {
 
 ;=====================================================================o
@@ -54,7 +126,7 @@ SetCapsLockState, AlwaysOff
 ;o----------------------o---------------------------------------------o
 ;|CapsLock;             | {ESC}  Especially Convient for vim user     |
 ;|CaspLock + `          | {CapsLock}CapsLock Switcher as a Substituent|
-;|CapsLock + hjklwb     | Vim-Style Cursor Mover                      |
+;|CapsLock + hjklfb     | Vim-Style Cursor Mover                      |
 ;|CaspLock + uiop       | Convient Home/End PageUp/PageDn             |
 ;|CaspLock + nm,.       | Convient Delete Controller                  |
 ;|CapsLock + zxcvay     | Windows-Style Editor                        |
@@ -316,7 +388,7 @@ CapsLock & n:: Send, ^{BS}                                           ;|
 ;                     CapsLock + v  |  Ctrl + z (Paste)              ;|
 ;                     CapsLock + a  |  Ctrl + a (Select All)         ;|
 ;                     CapsLock + y  |  Ctrl + z (Yeild)              ;|
-;                     CapsLock + w  |  Ctrl + Right(Move as [vim: w]);|
+;                     CapsLock + f  |  Ctrl + Right(Move as [vim: w]);|
 ;                     CapsLock + b  |  Ctrl + Left (Move as [vim: b]);|
 ;-----------------------------------o---------------------------------o
 CapsLock & z:: Send, ^z                                              ;|
@@ -325,7 +397,7 @@ CapsLock & c:: Send, ^c                                              ;|
 CapsLock & v:: Send, ^v                                              ;|
 CapsLock & a:: Send, ^a                                              ;|
 CapsLock & y:: Send, ^y                                              ;|
-CapsLock & w:: Send, ^{Right}                                        ;|
+CapsLock & f:: Send, ^{Right}                                        ;|
 CapsLock & b:: Send, ^{Left}                                         ;|
 ;---------------------------------------------------------------------o
 
